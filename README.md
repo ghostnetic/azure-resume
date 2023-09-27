@@ -22,7 +22,7 @@
 - Achieved this secure connection with the help of **Azure CDN**, which facilitates SSL termination for custom domains linked to Azure Blob Storage.
 
 **6. Custom DNS Integration**
-- [X] **In Progress**
+- [X] **Complete**
 - Configured a custom domain, which can be found [**here**](https://resume.davidrathell.dev/), to point to the Azure CDN endpoint.
 - This step offers a personalized web address for accessing the resume, enhancing its professional look. The domain registration typically incurs a small fee.
 
