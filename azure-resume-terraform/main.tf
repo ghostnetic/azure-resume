@@ -16,17 +16,22 @@ resource "azurerm_public_ip" "resume_public_ip" {
   allocation_method   = "Dynamic"
 }
 
-# Storage Account
-resource "azurerm_storage_account" "resume_storage_account" {
-  name                     = "resumestorageghostnetic"
-  resource_group_name      = azurerm_resource_group.resume_resource_group.name
-  location                 = azurerm_resource_group.resume_resource_group.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  min_tls_version          = "TLS1_2"
+# Network Security Group
+resource "azurerm_network_security_group" "resume_nsg" {
+  name                = "resumeNSG"
+  location            = azurerm_resource_group.resume_resource_group.location
+  resource_group_name = azurerm_resource_group.resume_resource_group.name
 
-  static_website {
-    index_document = "index.html"
+  security_rule {
+    name                       = "SSH"
+    priority                   = 1001
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
   }
 }
 
@@ -46,6 +51,11 @@ resource "azurerm_subnet" "resume_subnet" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
+resource "azurerm_subnet_network_security_group_association" "resume_subnet_nsg_association" {
+  subnet_id                 = azurerm_subnet.resume_subnet.id
+  network_security_group_id = azurerm_network_security_group.resume_nsg.id
+}
+
 # Create a network interface
 resource "azurerm_network_interface" "resume_nic" {
   name                = "resumeNIC"
@@ -59,6 +69,7 @@ resource "azurerm_network_interface" "resume_nic" {
     public_ip_address_id          = azurerm_public_ip.resume_public_ip.id
   }
 }
+
 
 # Create a Linux virtual machine
 resource "azurerm_linux_virtual_machine" "resume_vm" {
@@ -101,7 +112,7 @@ resource "azurerm_linux_virtual_machine" "resume_vm" {
 
     connection {
       type        = "ssh"
-      host        = azurerm_public_ip.resume_public_ip.ip_address  # changed from self.private_ip_address
+      host        = azurerm_public_ip.resume_public_ip.ip_address
       user        = "adminuser"
       private_key = file("C:/Users/david/.ssh/id_rsa")
     }
