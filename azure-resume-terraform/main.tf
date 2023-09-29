@@ -8,6 +8,24 @@ resource "azurerm_resource_group" "resume_resource_group" {
   location = "East US"
 }
 
+# Storage Account
+resource "azurerm_storage_account" "resume_storage_account" {
+  name                     = "resumestorageghostnetic" # Modify this to your desired unique name
+  resource_group_name      = azurerm_resource_group.resume_resource_group.name
+  location                 = azurerm_resource_group.resume_resource_group.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  static_website {
+    index_document = "index.html"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+}
+
+
 # Public IP Configuration
 resource "azurerm_public_ip" "resume_public_ip" {
   name                = "resumePublicIP"
@@ -30,7 +48,7 @@ resource "azurerm_network_security_group" "resume_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "*"
+    source_address_prefix      = "73.133.236.102/32"
     destination_address_prefix = "*"
   }
 }
@@ -69,36 +87,47 @@ resource "azurerm_network_interface" "resume_nic" {
     public_ip_address_id          = azurerm_public_ip.resume_public_ip.id
   }
 }
+data "azurerm_key_vault" "resume_keyvault" {
+  name                = "cloudresumekeyvault"
+  resource_group_name = azurerm_resource_group.resume_resource_group.name
+}
 
+data "azurerm_key_vault_secret" "resume_ssh_key" {
+  name         = "id-rsa-azure-pub"
+  key_vault_id = data.azurerm_key_vault.resume_keyvault.id
+}
 
 # Create a Linux virtual machine
 resource "azurerm_linux_virtual_machine" "resume_vm" {
-  name                = "resumeVM"
-  resource_group_name = azurerm_resource_group.resume_resource_group.name
-  location            = azurerm_resource_group.resume_resource_group.location
-  size                = "Standard_B1s"
-
-  network_interface_ids = [
-    azurerm_network_interface.resume_nic.id,
-  ]
-
-  admin_username = "adminuser"
+  name                  = "resumeVM"
+  resource_group_name   = azurerm_resource_group.resume_resource_group.name
+  location              = azurerm_resource_group.resume_resource_group.location
+  size                  = "Standard_B1s"
+  network_interface_ids = [azurerm_network_interface.resume_nic.id]
+  admin_username        = "adminuser"
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("C:/Users/david/.ssh/id_rsa.pub")
+    public_key = data.azurerm_key_vault_secret.resume_ssh_key.value
   }
+
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "20.04-LTS"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts-gen2"
     version   = "latest"
   }
 
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
+  }
+}
+
+resource "null_resource" "vm_provisioner" {
+  triggers = {
+    vm_id = azurerm_linux_virtual_machine.resume_vm.id
   }
 
   provisioner "remote-exec" {
@@ -107,14 +136,14 @@ resource "azurerm_linux_virtual_machine" "resume_vm" {
       "sudo apt install -y nginx",
       "sudo ufw allow 'Nginx Full'",
       "sudo systemctl enable nginx",
-      "sudo systemctl start nginx",
+      "sudo systemctl start nginx"
     ]
 
     connection {
       type        = "ssh"
       host        = azurerm_public_ip.resume_public_ip.ip_address
       user        = "adminuser"
-      private_key = file("C:/Users/david/.ssh/id_rsa")
+      private_key = file("C:/Users/david/.ssh/id_rsa_azure")
     }
   }
 }
