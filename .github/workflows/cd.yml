@@ -1,0 +1,26 @@
+name: Deploy to Azure Storage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Sync files to Azure Blob Storage
+      run: |
+        az storage blob upload-batch --source ./ --destination $web --account-name resumestorageghostnetic
+
+    - name: Logout of Azure
+      run: az logout
