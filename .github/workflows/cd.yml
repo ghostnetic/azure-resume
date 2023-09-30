@@ -20,7 +20,7 @@ jobs:
 
     - name: Sync files to Azure Blob Storage
       run: |
-        az storage blob upload-batch --source ./ --destination $web --account-name resumestorageghostnetic
+        az storage blob upload-batch --source ./ --destination '$web' --account-name resumestorageghostnetic
 
     - name: Logout of Azure
       run: az logout
