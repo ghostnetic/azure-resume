@@ -36,16 +36,21 @@ jobs:
 
     - name: Terraform Initialize
       run: terraform init
+      working-directory: azure-resume-terraform
 
     - name: Terraform Validate
       run: terraform validate
+      working-directory: azure-resume-terraform
 
     - name: Terraform Plan
       run: terraform plan -no-color
+      working-directory: azure-resume-terraform
       continue-on-error: true
 
     - name: Terraform Apply
       run: terraform apply -auto-approve
+      working-directory: azure-resume-terraform
+
 
     - name: Logout of Azure
       run: az logout
