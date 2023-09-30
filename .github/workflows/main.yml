@@ -31,6 +31,9 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
+    - name: Navigate to Terraform Directory # Add this step
+      run: cd azure-resume-terraform/
+
     - name: Terraform Initialize
       run: terraform init
 
