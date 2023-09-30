@@ -45,7 +45,11 @@ __pycache__/
 # Azurite artifacts
 __blobstorage__
 __queuestorage__
+<<<<<<< HEAD
 __azurite_db*__.json
 
 #Terraform
 .terraform/
+=======
+__azurite_db*__.json
+>>>>>>> 6c40018a90a57f31dacb8481aacc151510d5f759
