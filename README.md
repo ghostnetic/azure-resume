@@ -27,11 +27,11 @@
 - This step offers a personalized web address for accessing the resume, enhancing its professional look. The domain registration typically incurs a small fee.
 
 **7. Infrastructure Automation with Terraform**
-- [ ] **In Progress**
+- [X] **Complete**
 - Utilized **Terraform**, an Infrastructure as Code (IaC) tool, to script, plan, and apply the infrastructure setup.
 - This approach introduces automation and repeatability, ensuring infrastructure consistency and streamlining any modifications or scaling in the future.
 
 **8. HTTPS Configuration with Nginx Reverse Proxy**
-- [ ] **In Progress**
+- [X] **Complete**
 - Set up an **Nginx server** as a reverse proxy to enhance security and performance.
 - With Terraform scripts, automated the provisioning of this server, demonstrating an integrated approach to infrastructure and application deployment.
