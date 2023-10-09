@@ -1,37 +1,55 @@
 # Cloud Resume - Azure
 
-## Steps Completed
-
 **1. Azure Certification**
-- [x] **Complete**
-* Acquired the [**Microsoft Certified: Azure Fundamentals**](https://learn.microsoft.com/en-us/users/drathell-8407/credentials/d0708f3ebf976c07) certification, demonstrating a foundational understanding of Azure cloud services and solutions.
 
-**2. HTML & CSS Enhancement** 
-- [x] **Complete**
-- Utilizing a template, I converted my resume into a web-compatible **HTML format**. To ensure a pleasant and universally accessible user experience, I integrated **CSS styling**, enriching the visual presentation without overcomplicating the design.
-- ***Note: Still need to finish the projects section, for the projects displayed are NOT my work.***
+* Successfully achieved the [**Microsoft Certified: Azure Fundamentals**](https://learn.microsoft.com/en-us/users/drathell-8407/credentials/d0708f3ebf976c07) certification, marking a foundational grasp on Azure cloud solutions and services.
 
-**3. Deployment as a Static Website**
-- [x] **Complete**
-* Hosted the HTML resume online utilizing **Azure Storage** as a static website platform.
-* This step is crucial as it utilizes Azure's native capability to host static content, rather than relying on third-party platforms like Netlify or GitHub Pages.
+**2. HTML & CSS Enhancement**
 
-**5. Securing with HTTPS**
-- [x] **Complete**
-- Prioritized security by ensuring that the Azure Storage website URL uses **HTTPS**.
-- Achieved this secure connection with the help of **Azure CDN**, which facilitates SSL termination for custom domains linked to Azure Blob Storage.
+* Transformed my traditional resume into a web-ready format using a selected **HTML template**.
+  
+* Enhanced visual appeal and accessibility by integrating **CSS styling** for a seamless user experience._**Note: The projects section is under development and will be updated soon.**_
+  
 
-**6. Custom DNS Integration**
-- [X] **Complete**
-- Configured a custom domain, which can be found [**here**](https://resume.davidrathell.dev/), to point to the Azure CDN endpoint.
-- This step offers a personalized web address for accessing the resume, enhancing its professional look. The domain registration typically incurs a small fee.
+**3. Static Website Deployment on Azure**
 
-**7. Infrastructure Automation with Terraform**
-- [X] **Complete**
-- Utilized **Terraform**, an Infrastructure as Code (IaC) tool, to script, plan, and apply the infrastructure setup.
-- This approach introduces automation and repeatability, ensuring infrastructure consistency and streamlining any modifications or scaling in the future.
+* Employed **Azure Storage** for reliable static website hosting, demonstrating an affinity for Azure's innate web-serving capabilities over third-party alternatives.
 
-**8. HTTPS Configuration with Nginx Reverse Proxy**
-- [X] **Complete**
-- Set up an **Nginx server** as a reverse proxy to enhance security and performance.
-- With Terraform scripts, automated the provisioning of this server, demonstrating an integrated approach to infrastructure and application deployment.
+**4. HTTPS Security**
+
+* Prioritized data integrity and confidentiality by mandating **HTTPS** for all website interactions.
+  
+* Configured with **Azure CDN** to enable SSL termination for custom domains, underlining a commitment to secure data exchanges.
+  
+
+**5. Custom DNS Integration**
+
+* Elevated the personal touch of my website by setting up a custom domain, ensuring the resume is readily available through a polished web address.
+
+**6. Infrastructure Automation with Terraform**
+
+* Orchestrated a seamless deployment of virtual resources, including VMs and NSGs, through **Terraform** – a testament to proficiency in Infrastructure as Code (IaC) practices.
+  
+* This methodology guarantees consistent infrastructure provisioning and offers a streamlined process for future modifications.
+  
+
+**7. Nginx Reverse Proxy & Content Optimization**
+
+* Established an **Nginx server** within a virtual machine for robust content optimization and a secure reverse proxy setup.
+  
+* Integrated Terraform for automating the server's provisioning, reflecting an adeptness in blending infrastructure with application deployment.
+
+---
+
+By successfully completing the Cloud Resume project, I've demonstrated:
+
+* Mastery over **Azure Storage** for web content hosting and the secure delivery of this content using **Azure CDN**.
+  
+* Comprehensive understanding of **Terraform** to efficiently deploy and manage essential infrastructure components such as VMs and NSGs on Azure.
+  
+* Integration of **GitHub Actions** to realize CI/CD workflows, ensuring continuous content updates and platform integrity.
+  
+* Adeptness in deploying and managing an **Nginx server** within a VM for an enhanced content delivery experience, combined with secure reverse proxy functionalities.
+  
+
+This project signifies my readiness and zeal to undertake robust cloud projects, emphasizing secure, scalable, and streamlined solutions.
