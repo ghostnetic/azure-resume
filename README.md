@@ -1,5 +1,7 @@
 # Cloud Resume - Azure
 
+[**Live Link to Resume**](https://resume.davidrathell.dev)
+
 **1. Azure Certification**
 
 * Successfully achieved the [**Microsoft Certified: Azure Fundamentals**](https://learn.microsoft.com/en-us/users/drathell-8407/credentials/d0708f3ebf976c07) certification, marking a foundational grasp on Azure cloud solutions and services.
