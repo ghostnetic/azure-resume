@@ -10,7 +10,8 @@
 
 * Transformed my traditional resume into a web-ready format using a selected **HTML template**.
   
-* Enhanced visual appeal and accessibility by integrating **CSS styling** for a seamless user experience._**Note: The projects section is under development and will be updated soon.**_
+* Enhanced visual appeal and accessibility by integrating **CSS styling** for a seamless user experience.
+* _**Note: The projects section is under development and will be updated soon. The projects shown are NOT mine, but from a template.**_
   
 
 **3. Static Website Deployment on Azure**
