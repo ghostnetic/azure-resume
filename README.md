@@ -44,6 +44,12 @@
 
 ---
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ghostnetic/azure-resume/main/azure-resume.drawio.png" alt="Azure Resume Diagram">
+</div>
+
+---
+
 By successfully completing the Cloud Resume project, I've demonstrated:
 
 * Mastery over **Azure Storage** for web content hosting and the secure delivery of this content using **Azure CDN**.
@@ -53,6 +59,5 @@ By successfully completing the Cloud Resume project, I've demonstrated:
 * Integration of **GitHub Actions** to realize CI/CD workflows, ensuring continuous content updates and platform integrity.
   
 * Adeptness in deploying and managing an **Nginx server** within a VM for an enhanced content delivery experience, combined with secure reverse proxy functionalities.
-  
 
 This project signifies my readiness and zeal to undertake robust cloud projects, emphasizing secure, scalable, and streamlined solutions.
