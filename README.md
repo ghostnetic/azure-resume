@@ -1,36 +1,33 @@
-# Azure Cloud Resume - Deployment and Development Guide
+# Azure Secure Resume Deployment
 
 ## Overview
 
-Welcome to the detailed guide for my Azure Cloud Resume, a project demonstrating hands-on experience and proficiency with Azure services and web development best practices.
+This project showcases my commitment to security best practices in cloud-based solutions. It leverages Azure services and Infrastructure as Code (IaC) to build a secure and robust platform for hosting my online resume.
 
-**Live Resume:** [**https://resume.davidrathell.dev**](https://resume.davidrathell.dev)
+**Live Resume:** [https://resume.davidrathell.dev](https://resume.davidrathell.dev)
 
-### 1. Azure Fundamentals Certification
-- Successfully obtained the [**Microsoft Certified: Azure Fundamentals**](https://learn.microsoft.com/en-us/users/drathell-8407/credentials/d0708f3ebf976c07) credential, establishing a solid foundation in Azure services.
+## Security Highlights
 
-### 2. Resume Conversion to Web Format
-- Transformed a standard resume into an interactive web version using an **HTML template**.
-- Enhanced visual appeal and accessibility with **CSS styling**.
-- _**Note:** The projects section is under enhancement with real-world projects to replace the current placeholders._
+### HTTPS for Secure Communication
 
-### 3. Hosting with Azure Static Website
-- Employed **Azure Storage** for reliable and efficient static website hosting, demonstrating expertise in Azure web hosting solutions.
+- Implemented **HTTPS** to encrypt all communication between the user and the website, ensuring data confidentiality and integrity.
+- Utilized **Azure CDN** for SSL termination on custom domains, offloading encryption tasks and enhancing performance.
 
-### 4. Security with HTTPS
-- Secured the website using **HTTPS** for safe user interactions.
-- Leveraged **Azure CDN** for SSL termination on custom domains, emphasizing a commitment to secure and fast data delivery.
+### Secure Nginx Server
 
-### 5. Custom Domain Integration
-- Upgraded the website's professionalism and reach by integrating a **custom domain**.
+- Configured an **Nginx server** on a VM acting as a reverse proxy, adding an extra layer of security to the application.
+- Leveraged **Terraform** to automate server provisioning, ensuring consistency and reliability in security configurations.
+- Implemented security best practices in Nginx configuration to mitigate common web vulnerabilities.
 
-### 6. Infrastructure Automation via Terraform
-- Leveraged **Terraform** to automate the deployment of virtual resources, showcasing advanced Infrastructure as Code (IaC) capabilities.
-- Promoted consistent and streamlined infrastructure management and updates.
+### Infrastructure Automation with Terraform
 
-### 7. Optimized and Secure Nginx Server
-- Set up an **Nginx server** on a VM for enhanced content delivery and secure reverse proxy services.
-- Integrated Terraform for efficient and reliable server provisioning.
+- Employed **Terraform** to automate the deployment of all infrastructure components, minimizing human error and ensuring consistent security configurations across environments.
+- Defined security-focused infrastructure configurations, including network security groups, access control policies, and secure storage configurations.
+
+### Azure Storage and CDN Security
+
+- Utilized **Azure Storage** for secure and efficient static website hosting, leveraging built-in security features like access control and encryption.
+- Integrated **Azure CDN** to enhance security by leveraging its distributed network and DDoS protection capabilities.
 
 ---
 
@@ -42,9 +39,8 @@ Welcome to the detailed guide for my Azure Cloud Resume, a project demonstrating
 
 ## Key Achievements
 
-- Proficient handling of **Azure Storage** and **Azure CDN** for robust and secure hosting and content delivery.
-- Advanced infrastructure management and modification using **Terraform**.
-- Continuous and reliable updates through **GitHub Actions**.
-- Effective deployment and security of an **Nginx server**, ensuring optimal content delivery and security measures.
+- Demonstrated expertise in implementing security best practices across all layers of the application, from network to application level.
+- Showcased proficiency in utilizing Azure security features to build a robust and secure platform.
+- Emphasized the importance of automation and IaC in achieving consistent and reliable security configurations.
 
-This project showcases my dedication and skills in developing and deploying sophisticated cloud-based solutions, with a focus on secure, scalable, and efficient architectures.
+This project highlights my commitment to building secure and trustworthy cloud-based solutions by leveraging industry best practices and advanced security technologies.
