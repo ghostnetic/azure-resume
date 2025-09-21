@@ -4,7 +4,7 @@
 
 This project showcases my commitment to security best practices in cloud-based solutions. It leverages Azure services and Infrastructure as Code (IaC) to build a secure and robust platform for hosting my online resume.
 
-**Live Resume:** [https://resume.davidrathell.dev](https://resume.davidrathell.dev)
+**Live Resume:** N/A
 
 ## Security Highlights
 
